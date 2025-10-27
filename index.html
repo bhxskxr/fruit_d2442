@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fruit Chatbot</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f7fb;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      flex-direction: column;
+    }
+    h1 {
+      color: #333;
+    }
+    p {
+      color: #555;
+      max-width: 500px;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Welcome to the Fruit Chatbot</h1>
+  <p>Ask me what fruits to eat based on your mood, health goals, or the time of day!</p>
+
+  <!-- IBM Watson Assistant Chatbot Integration -->
+  <script>
+    window.watsonAssistantChatOptions = {
+      integrationID: "305b32db-d3ea-4968-8dd4-1e5b2178155e", // The ID of this integration.
+      region: "eu-de", // The region your integration is hosted in.
+      serviceInstanceID: "efc5897c-11d9-420a-bc32-8d40f1338907", // The ID of your service instance.
+      onLoad: async (instance) => { await instance.render(); }
+    };
+    setTimeout(function() {
+      const t = document.createElement('script');
+      t.src = "https://web-chat.global.assistant.watson.appdomain.cloud/versions/" 
+              + (window.watsonAssistantChatOptions.clientVersion || 'latest') 
+              + "/WatsonAssistantChatEntry.js";
+      document.head.appendChild(t);
+    });
+  </script>
+
+</body>
+</html>
